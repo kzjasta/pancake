@@ -3,6 +3,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+html, body {
+   height: 100%;
+}
+
 
 #logo{
   font-family: 'Painter';
@@ -13,6 +17,37 @@
 #navBar{
   background-color: #333;
   //background-color: #367ABD;
-  border-style: none;
+  border-bottom-color: #367ABD;
+  border-bottom-style: solid 3px;
 }
 
+.btn{
+  margin-top: 1%;
+  background-color: #EB7B2D;
+  border:0px solid transparent;
+  //color: #367ABD;
+}
+
+/*Forms*/
+.form-title{
+  text-align: center;
+  font-family: 'Painter';
+}
+
+.form-platform{
+  margin-top: 10%;
+  background-color: white;
+  border-style: solid 3px;
+  border-color: #367ABD;
+}
+
+.form-bg{
+  //background-color: #EB7B2D;
+}
+
+#form-content{
+}
+
+.error{
+  color: red;
+}

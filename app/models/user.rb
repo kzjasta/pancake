@@ -12,5 +12,5 @@ class User < ApplicationRecord
                          uniqueness: {case_sensitive: false}
                          
   has_secure_password
-  validates :password, length: {minimum: 7}
+  validates :password, length: {minimum: 7, maximum: 14}
 end
