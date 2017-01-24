@@ -7,7 +7,6 @@ html, body {
    height: 100%;
 }
 
-
 #logo{
   font-family: 'Painter';
   color: #EB7B2D;
@@ -22,7 +21,7 @@ html, body {
 }
 
 .btn{
-  margin-top: 1%;
+  margin-top: 2%;
   background-color: #EB7B2D;
   border:0px solid transparent;
   //color: #367ABD;
@@ -30,24 +29,41 @@ html, body {
 
 /*Forms*/
 .form-title{
+  font-family: 'Quicksand Book';
+  color: #EB7B2D;
   text-align: center;
-  font-family: 'Painter';
 }
 
 .form-platform{
+  font-family: 'Quicksand Bold';
+  color: white;
   margin-top: 10%;
-  background-color: white;
-  border-style: solid 3px;
-  border-color: #367ABD;
+  background-color: #333;
+  border: 1px solid white;
+  border-radius: 20px;
+  width:60%;
+  margin-left: 20%;
 }
 
-.form-bg{
-  //background-color: #EB7B2D;
-}
-
-#form-content{
+#regHelper{
+   color: white;
 }
 
 .error{
   color: red;
 }
+
+/*Navigation*/
+
+
+//Nav options
+.navbar-default .navbar-nav > li > a {
+    color: white;
+    font-family: 'Quicksand Bold';
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+    background-color: #EB7B2D;
+}
+
+

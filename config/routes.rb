@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
 
-  root 'static#home'
-  get 'signup' => 'users#new'
+  get 'sessions/new'
+
+  root               'static#home'
+  get 'signup' =>    'users#new'
+  get 'login' =>     'sessions#new'
+  post 'login' =>    'sessions#create'
+  delete 'logout' => 'sessions#destory'
   resources :users
+
 
 end

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>panCake!</title>
+    <%=render 'layouts/shim'%>
+  </head>
+  <body class="form-bg">
+    
+      <div class="container">
+        <div class="form-platform">
+          <div class="form">
+            <div class="row">
+              <h1 class="form-title">Log in</h1>
+            </div>
+            <div class="row">
+              <div class="col-xs-6 col-xs-offset-3">
+                <div class="form-group">
+
+                  <!--User Login Form -->
+                  <%= form_for(:session, url: login_path) do  |f| %>
+                    
+                    <!-- Username -->
+                    <%= f.label :username %>
+                    <%= f.text_field :username, class: "form-control" %>
+
+                    <!-- Password -->
+                    <%= f.label :password %>
+                    <%= f.password_field :password, class: "form-control" %>
+
+                    <!-- Login Button -->
+                    <%= f.submit "Login", class: "btn btn-primary" %>
+                  <% end %>
+
+                  <%=link_to "Don't have an account?", signup_path, id: 'regHelper' %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

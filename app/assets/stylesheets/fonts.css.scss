@@ -4,3 +4,24 @@
   font-weight: lighter;
   font-style: lighter;
 }
+
+@font-face{
+  font-family: 'Quicksand Book';
+  src: asset-url('Quicksand_Book.otf') format('truetype');
+  font-weight: lighter;
+  font-style: lighter;
+}
+
+@font-face{
+  font-family: 'Quicksand Bold';
+  src: asset-url('Quicksand_Bold.otf') format('truetype');
+  font-weight: lighter;
+  font-style: lighter;
+}
+
+@font-face{
+  font-family: 'Quicksand Light';
+  src: asset-url('Quicksand_Light.otf') format('truetype');
+  font-weight: lighter;
+  font-style: lighter;
+}
