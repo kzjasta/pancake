@@ -27,9 +27,16 @@
                     <%= f.label :password %>
                     <%= f.password_field :password, class: "form-control" %>
 
-                    <!-- Login Button -->
-                    <%= f.submit "Login", class: "btn btn-primary" %>
-                  <% end %>
+                    <!-- Remember me check box -->
+                    <%= f.label :remember_me, class: "checkbox-inline" do %>
+                      <%= f.check_box :remember_me %>
+                      Remember me?
+                    <% end %>
+
+                    <!-- Log in Button -->
+                    </br>
+                    <%= f.submit "Log in", class: "btn btn-primary" %>
+                    <% end %>
 
                   <%=link_to "Don't have an account?", signup_path, id: 'regHelper' %>
                 </div>
