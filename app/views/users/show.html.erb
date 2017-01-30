@@ -7,3 +7,17 @@
 </h1>
 
 <%= @user.first_name %>, <%= @user.email %>
+
+<div>
+  <h3>Teams</h3>
+  <% if @user.teams.any? %>
+      <ul>
+        <%@user.teams.each do |team| %>
+          <li><%= link_to team.name, team_path(team) %></li>
+        <% end %>
+      </ul>
+      
+    
+  <% end %>
+  <%= link_to "Add Team", new_team_path %>
+</div>

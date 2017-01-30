@@ -1,5 +1,8 @@
 class User < ApplicationRecord
 
+  #Associations
+  has_many :teams, dependent: :destroy
+
   attr_accessor :remember_token
 
   #User Attributes and Validation
