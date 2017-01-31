@@ -11,12 +11,26 @@ class TeamsController < ApplicationController
 
   end
 
+  def show
+    @team = Team.find(params[:id])
+  end
+
   def new
     @team = current_user.teams.build if logged_in?
   end
 
-  def edit
+  def update
+    @team = Team.find(params[:id])
+    if @team.update(team_params)
+      flash[:notice] = "Team was successfully updated"
+      redirect_to current_user
+    else
+      render 'edit'
+    end
+  end
 
+  def edit
+    @team = Team.find(params[:id])
   end
 
   def destroy

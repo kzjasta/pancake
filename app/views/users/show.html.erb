@@ -1,23 +1,23 @@
 
-<% provide(:title, @user.first_name)%>
-<h1>
-  <%= gravatar_for @user %>
-  <% name = @user.first_name.downcase + " " + @user.last_name.downcase%>
-  <%= name.titleize  %>
-</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div id="user-platform-top">
+        <%= link_to (gravatar_for @user), "http://en.gravatar.com/" %>
+        <% name = @user.first_name.downcase + " " + @user.last_name.downcase%>
+        <h3 id="full-name"><%= name.titleize %></h3>
+        <h4 id="username"><%= @user.username.downcase%></h4>
+      </div>
+      <div id="user-platform-bottom">
+        <h5 id="email"><%=@user.email.downcase%></h5>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <%= render "teams/team_listing" %>
+    </div> 
+  </div>
+  <div class="row">
 
-<%= @user.first_name %>, <%= @user.email %>
-
-<div>
-  <h3>Teams</h3>
-  <% if @user.teams.any? %>
-      <ul>
-        <%@user.teams.each do |team| %>
-          <li><%= link_to team.name, team_path(team) %></li>
-        <% end %>
-      </ul>
-      
-    
-  <% end %>
-  <%= link_to "Add Team", new_team_path %>
+  </div>
 </div>
+

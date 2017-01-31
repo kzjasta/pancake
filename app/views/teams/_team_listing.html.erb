@@ -1,3 +1,19 @@
-<li id="team-<%team.id %>">
-  <%= link_to team.name, team_path %>
-</li>
+<div>
+  <h4>Teams</h4>
+  <% if @user.teams.any? %>
+    <%@user.teams.each do |team| %>
+      <div id="team-platform">
+        <% name = team.name %>
+        <% description = team.description %>
+        <% capitilized_description = description.slice(0,1).capitalize + description.slice(1..-1) %>
+
+        <h5><%= name.titleize %></h5>
+        <p><%=  capitilized_description %></p>
+        <%= link_to "View", team_path(team) %>
+        <p id="spacer">|</p>
+        <%= link_to "Edit", edit_team_path(team) %>
+      </div>   
+    <% end %>
+  <% end %>
+</div>
+<%= link_to "Add Team", new_team_path, class: "btn btn-primary" ,id: "add-helper" %>
