@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>panCake!</title>
+    <%=render 'layouts/shim'%>
+  </head>
+  <body class="form-bg">
+      <div class="container">
+        <div class="form-platform">
+          <div class="form">
+            <div class="row">
+              <h1 class="form-title">Add Player</h1>
+            </div>
+            <div class="row">
+              <div class="col-xs-6 col-xs-offset-3">
+                <div class="form-group">
+
+                  <!--Add Player Form -->
+                  <%= form_for [@team, @player] do  |f| %>
+                    <%= render 'shared/error_messages', object: f.object %>
+
+                    <!-- First Name -->
+                    <%= f.label :first_name %>
+                    <%= f.text_field :first_name, class: "form-control" %>
+
+                    <!-- Last Name -->
+                    <%= f.label :last_name %>
+                    <%= f.text_field :last_name, class: "form-control" %>
+
+                    <!-- Date of Birth -->
+                    <%= f.label :date_of_birth %>
+                    <%= f.date_field :date_of_birth, class: "form-control" %>
+
+                    <!-- Height -->
+                    <%= f.label :height %>
+                    <%= f.text_field :height, class: "form-control" %>
+
+                    <!-- Weight -->
+                    <%= f.label :weight %>
+                    <%= f.text_field :weight, class: "form-control" %>
+
+                    <!-- Position -->
+                    <%= f.label :postion %>
+                    <%= f.text_field :position, class: "form-control" %>
+
+                    <!-- Spike Reach -->
+                    <%= f.label :spike_reach %>
+                    <%= f.text_field :spike_reach, class: "form-control" %>
+
+                    <!-- Block Reach -->
+                    <%= f.label :block__reach %>
+                    <%= f.text_field :block_reach, class: "form-control" %>
+
+                    <!-- Nationality -->
+                    <%= f.label :nationality %>
+                    <%= f.text_field :nationality, class: "form-control" %>
+                    
+                    <!-- Submit Button -->
+                    <%= f.submit "Add Player", class: "btn btn-primary" %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+
+
+
+</html>

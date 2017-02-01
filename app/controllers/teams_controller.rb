@@ -8,7 +8,6 @@ class TeamsController < ApplicationController
     else
       render "teams/new"
     end
-
   end
 
   def show

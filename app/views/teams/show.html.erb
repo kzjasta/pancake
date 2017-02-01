@@ -1,1 +1,11 @@
-<%= @team.name %>
+<div class="container">
+  <div class="jumbotron">
+    <h1><%=@team.name%></h1>
+    <div class="row">
+      <%=render "players/player_listing"%>
+    </div>
+    <%= link_to "Add Player", (new_team_player_path(@team)), class: "btn btn-primary" %>
+  </div>
+</div>
+
+
