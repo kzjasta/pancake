@@ -1,0 +1,30 @@
+<% if @team.players.any? %>
+  <% @team.players.each do |player| %>
+    <div class="row">
+      <div id="player-box">
+        <div class="col-md-3">
+          <div id="player-pic">
+          <li></li>
+          </div>
+          <% puts player.id %>
+          <%= link_to "Edit", edit_team_player_path(@team, player), class: "btn" %>
+        </div>
+        <div class="col-md-8">
+          <div class="player-details border-spacer">
+            <% name = player.first_name + " " + player.last_name %>
+            <h4><span class="bold">Name: </span><span><%=name.titleize%></span></h4>
+            <h4><span class="bold">Born: </span><span><%=player.date_of_birth.year%></span></h4>
+            <h4><span class="bold">Position: </span><span><%=player.position%></span></h4>
+            <h4><span class="bold">Nationality: </span><span><%=player.nationality%></span></h4>
+          </div>
+          <div class="player-details">
+            <h4><span class="bold">Height (cm): </span><span><%=player.height%></span></h4>
+            <h4><span class="bold">Weight (kg): </span><span><%=player.weight%></span></h4>
+            <h4><span class="bold">Spike Reach (cm): </span><span><%=player.spike_reach%></span></h4>
+            <h4><span class="bold">Block Reach (cm): </span><span><%=player.block_reach%></span></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
