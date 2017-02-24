@@ -11,6 +11,7 @@ class CreatePlayers < ActiveRecord::Migration[5.0]
       t.integer :block_reach
       t.string :nationality
       t.references :team, foreign_key: true
+      
 
       t.timestamps
     end

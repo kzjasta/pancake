@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>panCake!</title>
+    <%=render 'layouts/shim'%>
+  </head>
+  <body class="form-bg">
+      <div class="container">
+        <div class="form-platform">
+          <div class="form">
+            <div class="row">
+              <h1 class="form-title">Create Fixture</h1>
+            </div>
+            <div class="row">
+              <div class="col-xs-6 col-xs-offset-3">
+                <div class="form-group">
+
+                  <!--Fixture Creation Form -->
+                  <%= form_for(@fixture) do  |f| %>
+                    <%= render 'shared/error_messages', object: f.object%>
+
+                    <!-- Home Team -->
+                    <%= f.label :home_team %>
+                    
+                    <%= f.collection_select :home_team_id, @teams,:id, :name, {class: "form-control", include_blank: "Select team..."} %>
+
+                    <!-- Away Team -->
+                    <%= f.label :away_team %>
+                    <%= f.collection_select :away_team_id, @teams, :id, :name, {class: "form-control", include_blank: "Select team..."} %>
+
+                    <!-- Date and Time -->
+                    <%= f.label :date_time, "Date & Time" %>
+                    <%= f.datetime_field :date_time, {class: "form-control"} %>
+
+                    <!-- Home score -->
+                    <%= f.label :home_score %>
+                    <%= f.text_field :home_score, class: "form-control", placeholder: "Home score..." %>
+
+                    <!-- Away score -->
+                    <%= f.label :away_score %>
+                    <%= f.text_field :away_score, class: "form-control", size: "20x5", placeholder: "Away score..." %>
+
+                    <!-- Description -->
+                    <%= f.label :description %>
+                    <%= f.text_area :description, class: "form-control", size: "20x5", placeholder: "Fixture description..." %>
+
+                    <!-- Venue -->
+                    <%= f.label :venue %>
+                    <%= f.collection_select :venue_id, @venues, :id, :name, {class: "form-control", include_blank: "Select venue..."} %>
+                    <%= link_to "Venue not showing?", new_venue_path %> </br>
+
+                    <!-- Submit Button -->
+                    <%= f.submit "Add Fixture", class: "btn btn-primary" %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+
+
+
+</html>

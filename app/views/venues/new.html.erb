@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>panCake!</title>
+    <%=render 'layouts/shim'%>
+  </head>
+  <body class="form-bg">
+      <div class="container">
+        <div class="form-platform">
+          <div class="form">
+            <div class="row">
+              <h1 class="form-title">Create Venue</h1>
+            </div>
+            <div class="row">
+              <div class="col-xs-6 col-xs-offset-3">
+                <div class="form-group">
+
+                  <!--Fixture Creation Form -->
+                  <%= form_for(@venue) do  |f| %>
+                    <%= render 'shared/error_messages', object: f.object%>
+
+                    <!-- Venue Name -->
+                    <%= f.label :venue_name %>
+                    <%= f.text_field :name, class: "form-control", placeholder: "Venue name..." %>
+                  
+                    <!-- Submit Button -->
+                    <%= f.submit "Add Venue", class: "btn btn-primary" %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+
+
+
+</html>

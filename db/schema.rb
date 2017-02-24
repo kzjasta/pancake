@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170201130254) do
+ActiveRecord::Schema.define(version: 20170216173742) do
+
+  create_table "fixtures", force: :cascade do |t|
+    t.integer  "home_team_id"
+    t.integer  "away_team_id"
+    t.datetime "date_time"
+    t.integer  "home_score"
+    t.integer  "away_score"
+    t.text     "description"
+    t.integer  "venue_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "user_id"
+    t.index ["away_team_id"], name: "index_fixtures_on_away_team_id"    
+    t.index ["home_team_id"], name: "index_fixtures_on_home_team_id"
+    t.index ["user_id"], name: "index_fixtures_on_user_id"
+    t.index ["venue_id"], name: "index_fixtures_on_venue_id"
+  end
 
   create_table "players", force: :cascade do |t|
     t.string   "first_name"
@@ -47,6 +64,12 @@ ActiveRecord::Schema.define(version: 20170201130254) do
     t.string   "password_digest"
     t.string   "remember_digest"
     t.index ["email"], name: "index_users_on_email", unique: true
+  end
+
+  create_table "venues", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

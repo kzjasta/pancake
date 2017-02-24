@@ -33,9 +33,8 @@ class TeamsController < ApplicationController
   end
 
   def destroy
-
+    
   end
-
 
   private
     def team_params

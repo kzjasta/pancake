@@ -14,4 +14,7 @@ Rails.application.routes.draw do
     resources :players
   end
 
+  resources :fixtures
+  resources :venues
+
 end

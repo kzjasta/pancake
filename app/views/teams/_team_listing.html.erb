@@ -2,7 +2,7 @@
   <h4>Teams</h4>
   <% if @user.teams.any? %>
     <%@user.teams.each do |team| %>
-      <div id="team-platform">
+      <div id="content-platform">
         <% name = team.name %>
         <% description = team.description %>
         <% capitilized_description = description.slice(0,1).capitalize + description.slice(1..-1) %>

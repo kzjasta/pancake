@@ -2,6 +2,7 @@ class User < ApplicationRecord
 
   #Associations
   has_many :teams, dependent: :destroy
+  has_many :fixtures, dependent: :destroy
 
   attr_accessor :remember_token
 
