@@ -1,7 +1,7 @@
 class FixturesController < ApplicationController
   
   def show
-    @fixture = Fixture.find(fixture_params[:id])
+    @fixture = Fixture.find(params[:id])
   end
 
   def new
@@ -22,10 +22,14 @@ class FixturesController < ApplicationController
   end
 
   def edit
-    @fixture = Fixture.find(fixture_params[:id])
+    @fixture = Fixture.find(params[:id])
   end
 
   def destroy
+    @fixture = Fixture.find(params[:id])
+    @fixture.delete
+    flash[:success] = "Fixture Deleted"
+    redirect_to root_path
   end
 
   private

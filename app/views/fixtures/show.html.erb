@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="platform center">
+    <div class="jumbotron">
+        <div class="row">
+        <div id="home-team" class="col-md-4 center">
+          <h2><%= @fixture.home_team.name %></h2>
+        </div>
+        <div class="col-md-4 center">
+          <h2>vs</h2>
+        </div>
+        <div id="away-team" class="col-md-4 center">
+          <h2><%= @fixture.away_team.name %></h2>
+        </div>
+      </div>
+      <div id="results" class="row">
+          <div class="col-md-4">
+            
+          </div>
+          <div id="team-spacer" class="col-md-4">
+            <%= link_to "Add Set", (new_fixture_match_set_path(@fixture)), class: "btn btn-primary" %>
+          </div>
+          <div class="col-md-4">
+            
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

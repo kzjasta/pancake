@@ -1,7 +1,7 @@
 <div>
-  <h4>Teams</h4>
+  <h4 class="bold">Teams</h4>
   <% if @user.teams.any? %>
-    <%@user.teams.each do |team| %>
+    <% @user.teams.each do |team| %>
       <div id="content-platform">
         <% name = team.name %>
         <% description = team.description %>
@@ -12,8 +12,12 @@
         <%= link_to "View", team_path(team) %>
         <p id="spacer">|</p>
         <%= link_to "Edit", edit_team_path(team) %>
+        <p id="spacer">|</p>
+        <%= link_to "Remove", team, method: :delete, data:{confirm: "Are you sure? "} %>
       </div>   
     <% end %>
+  <% else %>
+    <h3 class="center">You have no teams!</h3> 
   <% end %>
 </div>
 <%= link_to "Add Team", new_team_path, class: "btn btn-primary" ,id: "add-helper" %>

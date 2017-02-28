@@ -18,7 +18,6 @@ class PlayersController < ApplicationController
 
   def edit
     @team = current_user.teams.find(params[:team_id])
-    puts @team
     @player = @team.players(player_params)
   end
 
@@ -33,6 +32,10 @@ class PlayersController < ApplicationController
   end
 
   def destroy
+    @player = Player.find(params[:id])
+    @player.delete
+    flash[:success] = "Player Deleted"
+    redirect_to root_path
   end
 
   private

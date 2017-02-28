@@ -6,8 +6,8 @@
           <div id="player-pic">
           <li></li>
           </div>
-          <% puts player.id %>
           <%= link_to "Edit", edit_team_player_path(@team, player), class: "btn" %>
+          <%= link_to "Remove", team_player_path(@team, player), method: :delete, data:{confirm: "Are you sure? "}, class: "btn" %>
         </div>
         <div class="col-md-8">
           <div class="player-details border-spacer">
@@ -27,4 +27,6 @@
       </div>
     </div>
   <% end %>
+  <% else %>
+    <h3 class="center">You have no players!</h3>
 <% end %>
