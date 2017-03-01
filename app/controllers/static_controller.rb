@@ -1,5 +1,4 @@
 class StaticController < ApplicationController
-  def home
-
+  def show
   end
 end
