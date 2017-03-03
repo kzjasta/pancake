@@ -4,6 +4,7 @@ class PlayersController < ApplicationController
   def create 
     @team = current_user.teams.find(params[:team_id])
     @player = @team.players.new(player_params)
+
     if @player.save
       redirect_to team_path(@team)
     else

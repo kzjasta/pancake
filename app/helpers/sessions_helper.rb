@@ -39,6 +39,7 @@ module SessionsHelper
 
   #Logs out the current user
   def log_out
+    expire_page root_url
     forget(current_user)
     session.delete(:user_id)
     @current_user = nil

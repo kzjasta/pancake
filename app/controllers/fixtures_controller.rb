@@ -30,7 +30,7 @@ class FixturesController < ApplicationController
     @fixture.delete
     flash[:success] = "Fixture Deleted"
     redirect_to root_path
-  end
+  end 
 
   private
 

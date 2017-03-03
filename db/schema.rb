@@ -10,14 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170228210130) do
+ActiveRecord::Schema.define(version: 20170303154516) do
 
   create_table "fixtures", force: :cascade do |t|
     t.integer  "home_team_id"
     t.integer  "away_team_id"
     t.datetime "date_time"
-    t.integer  "home_score"
-    t.integer  "away_score"
     t.text     "description"
     t.integer  "venue_id"
     t.datetime "created_at",   null: false
@@ -34,6 +32,8 @@ ActiveRecord::Schema.define(version: 20170228210130) do
     t.integer  "fixture_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "home_score"
+    t.integer  "away_score"
     t.index ["fixture_id"], name: "index_match_sets_on_fixture_id"
   end
 

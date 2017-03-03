@@ -13,15 +13,28 @@
         </div>
       </div>
       <div id="results" class="row">
-          <div class="col-md-4">
-            
-          </div>
-          <div id="team-spacer" class="col-md-4">
-            <%= link_to "Add Set", (new_fixture_match_set_path(@fixture)), class: "btn btn-primary" %>
-          </div>
-          <div class="col-md-4">
-            
-          </div>
+        <div class="col-md-4">
+          <% if @fixture.match_sets.any? %>
+            <% @fixture.match_sets.each do |set| %>
+             <h2><%= set.home_score %></h2>
+             <% end %>
+          <% end %>
+        </div>
+        <div id="team-spacer" class="col-md-4">
+          <% if @fixture.match_sets.any? %>
+            <% @fixture.match_sets.each do |set| %>
+             <h2> Set <%= set.set_number %></h2>
+             <% end %>
+          <% end %>
+          <%= link_to "Add Set",new_fixture_match_set_path(@fixture), class: "btn btn-primary" %>
+        </div>
+        <div class="col-md-4">
+          <% if @fixture.match_sets.any? %>
+            <% @fixture.match_sets.each do |set| %>
+             <h2><%= set.away_score %></h2>
+             <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
