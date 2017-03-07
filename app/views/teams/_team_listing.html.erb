@@ -13,7 +13,7 @@
         <p id="spacer">|</p>
         <%= link_to "Edit", edit_team_path(team) %>
         <p id="spacer">|</p>
-        <%= link_to "Remove", team, method: :delete, data:{confirm: "Are you sure? "} %>
+        <%= link_to "Remove", team, method: :delete, data:{confirm: "All fixtures containing this team will also be removed. Are you sure you want to remove this team? "} %>
       </div>   
     <% end %>
   <% else %>

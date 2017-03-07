@@ -4,7 +4,7 @@
       <div id="player-box">
         <div class="col-md-3">
           <div id="player-pic">
-          <li></li>
+            <%= image_tag player.image_url(:thumb).to_s %>
           </div>
           <%= link_to "Edit", edit_team_player_path(@team, player), class: "btn" %>
           <%= link_to "Remove", team_player_path(@team, player), method: :delete, data:{confirm: "Are you sure? "}, class: "btn" %>

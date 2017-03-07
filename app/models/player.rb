@@ -2,6 +2,7 @@ class Player < ApplicationRecord
   
   #Associations
   belongs_to :team
+  mount_uploader :image, ImageUploader
 
   #Player Attributes and Validation
   validates :first_name, presence: true, length:{maximum: 25}

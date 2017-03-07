@@ -35,8 +35,11 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'actionpack-page_caching'
 gem 'actionpack-action_caching'
 
-# React.js
-gem 'react-rails'
+#Carrierwave
+gem "carrierwave"
+
+#RMagik
+gem "rmagick"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

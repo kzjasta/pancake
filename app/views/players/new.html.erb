@@ -16,7 +16,7 @@
                 <div class="form-group">
 
                   <!--Add Player Form -->
-                  <%= form_for [@team, @player] do  |f| %>
+                  <%= form_for [@team, @player], :html => {:multipart => true} do  |f| %> 
                     <%= render 'shared/error_messages', object: f.object %>
 
                     <!-- First Name -->
@@ -54,6 +54,12 @@
                     <!-- Nationality -->
                     <%= f.label :nationality %>
                     <%= f.text_field :nationality, class: "form-control" %>
+
+                    <!-- Profile Image -->
+                    <%= f.label :image, 'Upload Image' %>
+                    <%= f.file_field :image, class: "form-control" %>
+                    <%= f.label :remote_image_url, 'or Image URL' %>
+                    <%= f.text_field :remote_image_url, class: "form-control" %>
                     
                     <!-- Submit Button -->
                     <%= f.submit "Add Player", class: "btn btn-primary" %>
