@@ -11,8 +11,6 @@ class Fixture < ApplicationRecord
   validates :home_team_id, presence: true
   validates :away_team_id, presence: true
   validates :date_time, presence: true
-  validates :home_score, presence: true
-  validates :away_score, presence: true
   validates :venue_id, presence: true
 
 end

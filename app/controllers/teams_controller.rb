@@ -34,6 +34,9 @@ class TeamsController < ApplicationController
 
   def destroy
     @team = Team.find(params[:id])
+    team_id = @team.id
+    Fixture.where(:home_team => team_id).destroy_all
+    Fixture.where(:away_team => team_id).destroy_all
     @team.destroy
     flash[:success] = "Team Deleted"
     redirect_to current_user

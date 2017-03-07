@@ -35,6 +35,6 @@ class FixturesController < ApplicationController
   private
 
     def fixture_params
-      params.require(:fixture).permit(:home_team_id, :away_team_id,:date_time, :home_score, :away_score, :description, :venue_id)
+      params.require(:fixture).permit(:home_team_id, :away_team_id,:date_time, :description, :venue_id)
     end
 end

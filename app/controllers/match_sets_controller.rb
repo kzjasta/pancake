@@ -1,4 +1,5 @@
 class MatchSetsController < ApplicationController
+  include ApplicationHelper
   
   def index
     @fixture =  Fixture.find(params[:fixture_id])
@@ -19,6 +20,18 @@ class MatchSetsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def edit
+    @fixture = Fixture.find(params[:id])
+    @match_set = @fixture.match_set(match_set_params)
+  end
+
+  def destroy
+    @match_set = MatchSet.find(params[:id])
+    @match_set.delete
+    flash[:success] = "Set Deleted"
+    redirect_to root_url
   end
 
 
