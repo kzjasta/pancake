@@ -21,7 +21,6 @@
 
                     <!-- Home Team -->
                     <%= f.label :home_team %>
-                    
                     <%= f.collection_select :home_team_id, @teams,:id, :name, {include_blank: "Select team..."}, {class: "form-control"} %>
 
                     <!-- Away Team -->

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170307221808) do
+ActiveRecord::Schema.define(version: 20170322014335) do
 
   create_table "fixtures", force: :cascade do |t|
     t.integer  "home_team_id"
@@ -34,7 +34,9 @@ ActiveRecord::Schema.define(version: 20170307221808) do
     t.datetime "updated_at", null: false
     t.integer  "home_score"
     t.integer  "away_score"
+    t.integer  "touch_id"
     t.index ["fixture_id"], name: "index_match_sets_on_fixture_id"
+    t.index ["touch_id"], name: "index_match_sets_on_touch_id"
   end
 
   create_table "players", force: :cascade do |t|
@@ -61,6 +63,20 @@ ActiveRecord::Schema.define(version: 20170307221808) do
     t.datetime "updated_at",  null: false
     t.text     "description"
     t.index ["user_id"], name: "index_teams_on_user_id"
+  end
+
+  create_table "touches", force: :cascade do |t|
+    t.integer  "player_id"
+    t.integer  "position"
+    t.string   "touch_type"
+    t.string   "touch_result"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "team_id"
+    t.integer  "match_set_id"
+    t.index ["match_set_id"], name: "index_touches_on_match_set_id"
+    t.index ["player_id"], name: "index_touches_on_player_id"
+    t.index ["team_id"], name: "index_touches_on_team_id"
   end
 
   create_table "users", force: :cascade do |t|

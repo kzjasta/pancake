@@ -2,6 +2,7 @@ class MatchSet < ApplicationRecord
 
   #Associations
   belongs_to :fixture
+  has_many :touches
 
   #Validations
   validates :set_number, presence: true, :numericality => {:greater_than => 0}, :uniqueness => {:scope => :fixture_id, :message => 'already exists'}

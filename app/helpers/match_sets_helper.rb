@@ -8,5 +8,4 @@ module MatchSetsHelper
       return false
     end
   end
-
 end

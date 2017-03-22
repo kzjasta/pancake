@@ -17,32 +17,33 @@
           <% if @fixture.match_sets.any? %>
             <% @fixture.match_sets.each do |set| %>
 
-            <% home_score = set.home_score %>
-            <% away_score = set.away_score %>
+              <% home_score = set.home_score %>
+              <% away_score = set.away_score %>
 
-             <h2 class="<%= checkScore(home_score, away_score) ? 'green' : 'red' %>"><%= set.home_score %></h2>
-             <% end %>
+              <h2 class="<%= checkScore(home_score, away_score) ? 'green' : 'red' %>"><%= set.home_score %></h2>
+            <% end %>
           <% end %>
         </div>
         <div id="team-spacer" class="col-md-4">
           <% if @fixture.match_sets.any? %>
             <% @fixture.match_sets.each do |set| %>
               <% set_number = set.set_number.to_s %>
-             <h2> <%= link_to "Set " + set_number, fixture_match_set_path(@fixture) %></h2>
+              <h2> <%= link_to "Set " + set_number, match_set_path(set) %></h2>
              <% end %>
           <% end %>
 
           <% if @fixture.match_sets.size < 5 %>
-            <%= link_to "Add Set",new_fixture_match_set_path(@fixture), class: "btn btn-primary" %>
+            <%= link_to "Add Set",new_fixture_match_set_path(@fixture), class: "btn btn-primary" %> 
           <% end %>
 
         </div>
         <div class="col-md-4">
           <% if @fixture.match_sets.any? %>
+          
             <% @fixture.match_sets.each do |set| %>
-
               <% home_score = set.home_score %>
               <% away_score = set.away_score %>
+
               <h2 class="<%= checkScore(home_score, away_score) ? 'red' : 'green' %>"><%= set.away_score %></h2>
             <% end %>
           <% end %>

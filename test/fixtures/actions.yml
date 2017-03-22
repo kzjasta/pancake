@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  player: one
+  position: 1
+  action_type: MyString
+  action_result: MyString
+  rally: one
+
+two:
+  player: two
+  position: 1
+  action_type: MyString
+  action_result: MyString
+  rally: two

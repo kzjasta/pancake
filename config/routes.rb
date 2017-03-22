@@ -14,8 +14,10 @@ Rails.application.routes.draw do
     resources :players
   end
 
-  resources :fixtures do
-    resources :match_sets
+  resources :fixtures, shallow: true do
+    resources :match_sets, shallow: true do
+      resources :touches
+    end
   end
   
   resources :venues

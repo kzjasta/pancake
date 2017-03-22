@@ -1,10 +1,11 @@
 class MatchSetsController < ApplicationController
   include ApplicationHelper
-  
-  def index
-    @fixture =  Fixture.find(params[:fixture_id])
-    @match_set = @fixture.match_sets.all
+
+  def show
+    @match_set = MatchSet.find(params[:id])
+    @fixture = @match_set.fixture
   end
+  
 
   def new
     @fixture = Fixture.find(params[:fixture_id])
@@ -33,6 +34,7 @@ class MatchSetsController < ApplicationController
     flash[:success] = "Set Deleted"
     redirect_to root_url
   end
+
 
 
   private
