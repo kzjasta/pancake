@@ -1,0 +1,12 @@
+<div>
+  <% if @match_set.touches.any? %>
+    <% @match_set.touches.each do |touch| %>
+      <% if touch.id.to_i != 0 %>
+        <% team = Team.find(touch.team_id) %>
+        <p> <%=team.name %></p>
+      <% end %>
+    <% end %>
+  <% else %>
+     <h3 class="center">You have no touches!</h3>
+  <% end %>
+</div>

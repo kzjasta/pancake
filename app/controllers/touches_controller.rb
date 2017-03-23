@@ -1,22 +1,28 @@
 class TouchesController < ApplicationController
 
   def new
-    @match_set = MatchSet.find(params[:match_set_id])
-    @fixture = @match_set.fixture
-    @teams = Team.where("id = " + @fixture.home_team_id.to_s + " OR id = " + @fixture.away_team_id.to_s)
-    @players = Player.where("team_id = " + @teams.ids.first.to_s + " OR id = " + @teams.ids.last.to_s)
+    get_touch_objects
     @touch = @match_set.touches.new
   end
 
   def create
-    @match_set = MatchSet.find(params[:match_set_id])
+    get_touch_objects
     @touch = @match_set.touches.new(touch_params)
 
     if @touch.save
-      redirect_to current_user
+      redirect_to new_match_set_touch_path
+      flash[:success] = "Touch Added"
     else
       render "touches/new"
     end
+  end
+
+
+  def get_touch_objects
+    @match_set = MatchSet.find(params[:match_set_id])
+    @fixture = @match_set.fixture
+    @teams = Team.where("id = " + @fixture.home_team_id.to_s + " OR id = " + @fixture.away_team_id.to_s)
+    @players = Player.where("team_id = " + @teams.ids.first.to_s + " OR id = " + @teams.ids.last.to_s)
   end
 
   private
