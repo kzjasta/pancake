@@ -7,7 +7,7 @@
   <body class="form-bg">
     <div class="container">
       <div class="row">
-        <div id="tracker-platform" class="col-xs-10 col-xs-offset-1">
+        <div id="tracker-platform" class="col-xs-12">
           <h1 class="center">Touch Tracker</h1>
           <div>
             <%= render 'touches/touch_listing' %>
@@ -20,7 +20,7 @@
             <h1 class="form-title">Add Touch</h1>
           </div>
           <div class="row">
-            <div class="col-xs-6 col-xs-offset-3">
+            <div class="col-xs-8 col-xs-offset-2">
               <div class="form-group">
 
               <!--Add Touch Form -->
@@ -41,7 +41,7 @@
 
                 <!-- Touch Type -->
                 <%= f.label :touch_type %>
-                <%= f.select :touch_type, options_for_select(['Attack', 'Block', 'Pass', 'Set']), {include_blank: "Select touch type..."}, :onchange => "populate(this.id, 'touch_touch_result')", class: "form-control" %>
+                <%= f.select :touch_type, options_for_select(['Attack', 'Block', 'Pass', 'Set', 'Serve', 'Misc']), {include_blank: "Select touch type..."}, :onchange => "populate(this.id, 'touch_touch_result')", class: "form-control" %>
 
                 <!-- Touch Result -->
                 <%= f.label :touch_result %>

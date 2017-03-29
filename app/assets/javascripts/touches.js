@@ -10,7 +10,7 @@ function populate(s1,s2){
   var s2 = document.getElementById(s2);
   s2.innerHTML = "";
   if(s1.value == "Attack"){
-    var optionArray = ["kill|Kill", "out|Out", "continuation|Continuation", "net fault|Net Fault", 
+    var optionArray = ["kill|Kill", "out|Out","blocked|Blocked", "continuation|Continuation", "net fault|Net Fault", 
                       "attack violation|Attack Violation", "net|Net", "foot fault|Foot Fault", 
                       "handling error|Handling Error", "invasion|Invasion", "free ball|Free Ball"];
   }else if(s1.value == "Block"){
@@ -27,7 +27,9 @@ function populate(s1,s2){
                       "handling error|Handling Error", "error|Error"]
                       
   }else if(s1.value == "Serve"){
-    var optionArray = ["ace|Ace", "out|Out", "continuation|Continuation"]
+    var optionArray = ["ace|Ace", "out|Out", "1|into 1", "2|into 2", "3|into 3", "4| into 4", "5|into 5","6|into 6" ]
+  }else if(s1.value == "Misc"){
+    var optionArray = ["yellow card|Yellow Card", "red card|Red Card", "rotation fault|Rotation Fault"]
   }
 
 

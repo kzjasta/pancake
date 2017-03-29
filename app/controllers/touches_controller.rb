@@ -3,6 +3,8 @@ class TouchesController < ApplicationController
   def new
     get_touch_objects
     @touch = @match_set.touches.new
+    @home_score = 0
+    @away_score = 0
   end
 
   def create

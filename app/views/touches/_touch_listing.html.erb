@@ -1,12 +1,12 @@
-<div id="touch-tracker">
+<div class="col-xs-12" id="touch-tracker">
   <div>
     <% if @match_set.touches.any? %>
     <% @match_set.touches.each do |touch| %>
       <% if touch.id.to_i != 0 %>
         <% team = Team.find(touch.team_id) %>
         <% player = Player.find(touch.player_id) %>
-        <% home_score = 0 %>
-        <% away_score = 0 %>
+        <% home_team = @fixture.home_team %>
+        <% away_team = @fixture.away_team %>
         <div class="touch">
           <div class="touch-part"><h4> <%=team.name %></h4></div>
           <div class="touch-part"><h4 id="describer">player</h4></div>
@@ -16,10 +16,20 @@
           <div class="touch-part"><h4 id="describer">performed a(n)</h4></div>
           <div class="touch-part"><h4> <%=touch.touch_type %></h4></div>
           <div class="touch-part"><h4 id="describer">and resulted in a(n)</h4></div>
-          <div class="touch-part"><h4> <%=touch.touch_result %></h4></div>
+          <div class="touch-part"><h4> <%=touch.touch_result.titleize %></h4></div>
           <div class="clearfix"></div>
 
-          <h4 class="center">Home - 14:10 - Away</h4>
+          <% if is_it_a_point?(touch) %>
+            <% if team.name == home_team.name %>
+              <% @home_score+=1 %>
+              <h4 class="center">Home - <%=@home_score%> : <%=@away_score%> - Away</h4>
+            <% elsif team.name == away_team.name %>
+              <% @away_score+=1 %>
+              <h4 class="center">Home - <%=@home_score%> : <%=@away_score%> - Away</h4>
+            <% end %>
+          <% end %>
+
+          
         </div>
       <% end %>
     <% end %>

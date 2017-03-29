@@ -11,4 +11,5 @@ class Touch < ApplicationRecord
   validates :position, presence: true, numericality: true
   validates :touch_type, presence: true
   validates :touch_result, presence: true
+  
 end
