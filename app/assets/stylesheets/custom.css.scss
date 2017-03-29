@@ -271,15 +271,48 @@ a{
   color: red;
 }
 
-
 /******* Actions Control Panel *******/
 
-#touch-tracker{
-  margin-top: 5%;
+#tracker-platform{
   background-color: #333;
-  border-radius: 5px;
-  font-family: "Quicksand Book";
   color: #EB7B2D;
+  font-family: "Quicksand Book";
+  border-radius: 1%;
+}
+
+.touch{
+  font-weight: bold;
+  border-bottom: 1px dotted white;
+}
+
+.touch-part{
+  display: inline-block;
+  float: left;
+  padding: 1%;
+}
+
+.clearfix{
+  clear: both;
+}
+
+#describer{
+  font-style: italic;
+  color: #EB7B2D;
+}
+
+#touch-panel{
+  margin-top: 1%;
+}
+
+#touch-tracker{
+  margin-top: 2%;
+  margin-bottom: 1%;
+  background-color: #333;
+  font-family: "Quicksand Bold";
+  color: white;
+  overflow: auto;
+  height: 300px;
+  padding: 2%;
 }
 
 

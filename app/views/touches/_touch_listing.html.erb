@@ -1,12 +1,30 @@
-<div>
-  <% if @match_set.touches.any? %>
+<div id="touch-tracker">
+  <div>
+    <% if @match_set.touches.any? %>
     <% @match_set.touches.each do |touch| %>
       <% if touch.id.to_i != 0 %>
         <% team = Team.find(touch.team_id) %>
-        <p> <%=team.name %></p>
+        <% player = Player.find(touch.player_id) %>
+        <% home_score = 0 %>
+        <% away_score = 0 %>
+        <div class="touch">
+          <div class="touch-part"><h4> <%=team.name %></h4></div>
+          <div class="touch-part"><h4 id="describer">player</h4></div>
+          <div class="touch-part"><h4> <%=player.last_name %></h4></div>
+          <div class="touch-part"><h4 id="describer">in position</h4></div>
+          <div class="touch-part"><h4> <%=touch.position %></h4></div>
+          <div class="touch-part"><h4 id="describer">performed a(n)</h4></div>
+          <div class="touch-part"><h4> <%=touch.touch_type %></h4></div>
+          <div class="touch-part"><h4 id="describer">and resulted in a(n)</h4></div>
+          <div class="touch-part"><h4> <%=touch.touch_result %></h4></div>
+          <div class="clearfix"></div>
+
+          <h4 class="center">Home - 14:10 - Away</h4>
+        </div>
       <% end %>
     <% end %>
   <% else %>
      <h3 class="center">You have no touches!</h3>
   <% end %>
+  </div>
 </div>

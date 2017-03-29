@@ -7,14 +7,14 @@
   <body class="form-bg">
     <div class="container">
       <div class="row">
-        <div id="touch-tracker"class="col-xs-10 col-xs-offset-1">
+        <div id="tracker-platform" class="col-xs-10 col-xs-offset-1">
           <h1 class="center">Touch Tracker</h1>
           <div>
             <%= render 'touches/touch_listing' %>
           </div>
         </div>
       </div>
-      <div class="form-platform">
+      <div id="touch-panel" class="form-platform">
         <div class="form">
           <div class="row">
             <h1 class="form-title">Add Touch</h1>
@@ -22,6 +22,7 @@
           <div class="row">
             <div class="col-xs-6 col-xs-offset-3">
               <div class="form-group">
+
               <!--Add Touch Form -->
               <%= form_for [@match_set, @touch] do  |f| %> 
                 <%= render 'shared/error_messages', object: f.object %>
@@ -40,11 +41,11 @@
 
                 <!-- Touch Type -->
                 <%= f.label :touch_type %>
-                <%= f.select :touch_type, options_for_select(['Attack', 'Block', 'Pass', 'Set']), {include_blank: "Select touch type..."}, class: "form-control" %>
+                <%= f.select :touch_type, options_for_select(['Attack', 'Block', 'Pass', 'Set']), {include_blank: "Select touch type..."}, :onchange => "populate(this.id, 'touch_touch_result')", class: "form-control" %>
 
                 <!-- Touch Result -->
                 <%= f.label :touch_result %>
-                <%= f.select :touch_result, options_for_select(['Score', 'Block', 'Pass', 'Set']), {include_blank: "Select touch result..."}, class: "form-control" %>
+                <%= f.select :touch_result, {}, {include_blank: "Select touch result..."}, class: "form-control" %>
                 
                 <!-- Submit Button -->
                 <%= f.submit "Add Touch", class: "btn btn-primary" %>

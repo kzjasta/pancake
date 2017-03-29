@@ -11,7 +11,6 @@ class TouchesController < ApplicationController
 
     if @touch.save
       redirect_to new_match_set_touch_path
-      flash[:success] = "Touch Added"
     else
       render "touches/new"
     end
