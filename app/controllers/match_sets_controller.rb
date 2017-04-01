@@ -4,6 +4,9 @@ class MatchSetsController < ApplicationController
   def show
     @match_set = MatchSet.find(params[:id])
     @fixture = @match_set.fixture
+    @touch = @match_set.touches.find(params[:id])
+    @home_score = 0
+    @away_score = 0
   end
   
 

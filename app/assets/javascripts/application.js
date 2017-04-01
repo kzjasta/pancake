@@ -17,3 +17,6 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
+
+
+$("#touch-tracker").scrollTop($("#touch-tracker")[0].scrollHeight);

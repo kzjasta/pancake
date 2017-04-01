@@ -4,15 +4,17 @@
     <title>panCake!</title>
     <%=render 'layouts/shim'%>
   </head>
-  <body>
+  <body class="form-bg">
     <div class="container">
       <div class="row">
-        <div class="col-xs-6">
-          
-          <h1>Set Touches</h1>
+        <div id="tracker-platform" class="col-xs-12">
+          <h1 class="center">Touch Tracker</h1>
+          <div>
+            <%= render 'touches/touch_listing' %>
+          </div>
         </div>
+        <%= link_to "Add Touches",new_match_set_touch_path(@match_set), class: "btn btn-primary" %> 
       </div>
     </div>
-    <%= link_to "Add Touches",new_match_set_touch_path(@match_set), class: "btn btn-primary" %> 
   </body>
 </html>

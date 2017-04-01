@@ -19,7 +19,7 @@
           <div class="touch-part"><h4> <%=touch.touch_result.titleize %></h4></div>
           <div class="clearfix"></div>
 
-          <% if is_it_a_point?(touch) %>
+          <% if is_it_a_point?(touch) == true %>
             <% if team.name == home_team.name %>
               <% @home_score+=1 %>
               <h4 class="center">Home - <%=@home_score%> : <%=@away_score%> - Away</h4>
@@ -27,14 +27,21 @@
               <% @away_score+=1 %>
               <h4 class="center">Home - <%=@home_score%> : <%=@away_score%> - Away</h4>
             <% end %>
+          <% elsif is_it_a_point?(touch) == false %>
+            <% if team.name == home_team.name %>
+              <% @away_score+=1 %>
+              <h4 class="center">Home - <%=@home_score%> : <%=@away_score%> - Away</h4>
+            <% elsif team.name == away_team.name %>
+              <% @home_score+=1 %>
+              <h4 class="center">Home - <%=@home_score%> : <%=@away_score%> - Away</h4>
+            <% end %>
           <% end %>
-
-          
         </div>
       <% end %>
     <% end %>
   <% else %>
      <h3 class="center">You have no touches!</h3>
   <% end %>
+  <script type="text/javascript">scrollToBottom();</script>
   </div>
 </div>

@@ -42,6 +42,10 @@ function populate(s1,s2){
   }
 }
 
+function scrollToBottom(){
+  var objDiv = document.getElementById("touch-tracker");
+  objDiv.scrollTop = objDiv.scrollHeight;
+}
 
 
 
