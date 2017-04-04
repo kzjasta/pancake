@@ -2,6 +2,19 @@ class FixturesController < ApplicationController
   
   def show
     @fixture = Fixture.find(params[:id])
+    @match_sets = @fixture.match_sets.all
+    @home_team = @fixture.home_team
+    @away_team = @fixture.away_team
+    @home_score = 0
+    @away_score = 0
+    @attacks = 0
+    @kills = 0
+    @kill_blocks = 0
+    @aces = 0
+    @errors = 0
+    @total = 0
+    @efficiency = 0
+    @passing_average = 0
   end
 
   def new

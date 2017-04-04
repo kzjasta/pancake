@@ -271,6 +271,7 @@ a{
   color: red;
 }
 
+
 /******* Actions Control Panel *******/
 
 #tracker-platform{
@@ -280,10 +281,11 @@ a{
   border-radius: 1%;
 }
 
-.touch{
+#touch{
   font-weight: bold;
   border-bottom: 1px dotted white;
   margin-left: 3%;
+  margin-top: 1%;
 }
 
 .touch-part{
@@ -316,6 +318,20 @@ a{
   padding: 2%;
 }
 
+.kill{
+  background-color: green;
+}
+
+.foul{
+  background-color: red;
+}
+
+/******* Set Report *******/
+
+#report-platform{
+  margin-top: 5%;
+  font-family: "Quicksand Bold";
+}
 
 
 

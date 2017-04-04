@@ -51,4 +51,94 @@
       </div>
     </div>
   </div>
+  <div class="row">
+          <div id="report-platform" class="col-xs-12">
+            <h1 class="form-title center"><%=@home_team.name + " - Match Report"%></h1>
+            <table class="table table-inverse">
+              <thead>
+                <tr>
+                  <th>Player</th>
+                  <th>Kills</th>
+                  <th>Kill Blocks</th>
+                  <th>Aces</th>
+                  <th>Scored</th>
+                  <th>Attacking Errors</th>
+                  <th>Hitting Efficiency</th>
+                  <th>Pass Average</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% if @home_team.players.any? %>
+                  <% @home_team.players.each do |player| %>
+                    <% get_attack_errors(player) %>
+                    <% get_stats(player) %>
+                    <% get_pass_average(player) %>
+                    <tr>
+                      <th scope="row"><%=player.last_name%></th>
+                      <td><%=@kills%></td>
+                      <td><%=@kill_blocks%></td>
+                      <td><%=@aces%></td>
+                      <td><%=@total%></td>
+                      <td><%=@errors%></td>
+                      <% if @efficiency.to_f.nan? %>
+                        <td>No attacks</td>
+                      <% else %>
+                        <td><%=@efficiency.to_f.round(2)%>%</td>
+                      <% end %>
+                      <%if @passing_average.to_f.nan? %>
+                        <td>No passes</td>
+                      <%else%>
+                      <td><%=@passing_average%></td>
+                      <% end %>
+                    </tr>
+                  <% end %> 
+                <% end %>
+              </tbody>
+            </table>  
+          </div>
+          <div id="report-platform" class="col-xs-12">
+            <h1 class="form-title center"><%=@away_team.name + " - Match Report"%></h1>
+            <table class="table table-inverse">
+              <thead>
+                <tr>
+                  <th>Player</th>
+                  <th>Kills</th>
+                  <th>Kill Blocks</th>
+                  <th>Aces</th>
+                  <th>Scored</th>
+                  <th>Attacking Errors</th>
+                  <th>Hitting Efficiency</th>
+                  <th>Pass Average</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% if @away_team.players.any? %>
+                  <% @away_team.players.each do |player| %>
+                    <% get_attack_errors(player) %>
+                    <% get_stats(player) %>
+                    <% get_pass_average(player) %>
+                    <tr>
+                      <th scope="row"><%=player.last_name%></th>
+                      <td><%=@kills%></td>
+                      <td><%=@kill_blocks%></td>
+                      <td><%=@aces%></td>
+                      <td><%=@total%></td>
+                      <td><%=@errors%></td>
+                      <% if @efficiency.to_f.nan? %>
+                        <td>No attacks</td>
+                      <% else %>
+                        <td><%=@efficiency.to_f.round(2)%>%</td>
+                      <% end %>
+                      <%if @passing_average.to_f.nan? %>
+                        <td>No passes</td>
+                      <%else%>
+                      <td><%=@passing_average%></td>
+                      <% end %>
+                    </tr>
+                  <% end %> 
+                <% end %>
+              </tbody>
+            </table>  
+          </div>
+
 </div>

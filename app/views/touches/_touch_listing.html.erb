@@ -7,7 +7,7 @@
         <% player = Player.find(touch.player_id) %>
         <% home_team = @fixture.home_team %>
         <% away_team = @fixture.away_team %>
-        <div class="touch">
+        <div id="touch">
           <div class="touch-part"><h4> <%=team.name %></h4></div>
           <div class="touch-part"><h4 id="describer">player</h4></div>
           <div class="touch-part"><h4> <%=player.last_name %></h4></div>

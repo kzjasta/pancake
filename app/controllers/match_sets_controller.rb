@@ -4,12 +4,19 @@ class MatchSetsController < ApplicationController
   def show
     @match_set = MatchSet.find(params[:id])
     @fixture = @match_set.fixture
-    @touch = @match_set.touches.find(params[:id])
+    @home_team = @fixture.home_team
+    @away_team = @fixture.away_team
     @home_score = 0
     @away_score = 0
+    @kills = 0
+    @blocks = 0
+    @aces = 0
+    @errors = 0
+    @total = 0
+    @efficiency = 0
+    @passing_average = 0
   end
   
-
   def new
     @fixture = Fixture.find(params[:fixture_id])
     @match_set = @fixture.match_sets.new
@@ -37,8 +44,6 @@ class MatchSetsController < ApplicationController
     flash[:success] = "Set Deleted"
     redirect_to root_url
   end
-
-
 
   private
     def match_set_params

@@ -19,15 +19,15 @@ function populate(s1,s2){
                       "illegal blocker|Illegal Blocker"]
 
   }else if(s1.value == "Pass"){
-    var optionArray = ["0|0 point-pass", "1|1 point-pass", "2|2 point-pass", "3|3 point-pass", "handling error|Handling Error",
-                      "overpass|Overpass", "error|Error"]
+    var optionArray = ["0|0 point-pass", "1|1 point-pass", "2|2 point-pass", "3|3 point-pass" ]
 
   }else if(s1.value == "Set"){
     var optionArray = ["1|Set to 1","2|Set to 2", "3|Set to 3", "4|Set to 4", "5|Set to 5", "6|Set to 6", 
                       "handling error|Handling Error", "error|Error"]
                       
   }else if(s1.value == "Serve"){
-    var optionArray = ["ace|Ace", "out|Out", "1|into 1", "2|into 2", "3|into 3", "4| into 4", "5|into 5","6|into 6" ]
+    var optionArray = ["ace|Ace", "out|Out", "1|into 1", "2|into 2", "3|into 3", "4| into 4", "5|into 5","6|into 6"]
+
   }else if(s1.value == "Misc"){
     var optionArray = ["yellow card|Yellow Card", "red card|Red Card", "rotation fault|Rotation Fault"]
   }
@@ -42,6 +42,7 @@ function populate(s1,s2){
   }
 }
 
+//Scrolls to the bottom of the touch tracker
 function scrollToBottom(){
   var objDiv = document.getElementById("touch-tracker");
   objDiv.scrollTop = objDiv.scrollHeight;
