@@ -28,7 +28,13 @@
           <% if @fixture.match_sets.any? %>
             <% @fixture.match_sets.each do |set| %>
               <% set_number = set.set_number.to_s %>
-              <h2> <%= link_to "Set " + set_number, match_set_path(set) %></h2>
+              <div class="set-control-group">
+                <%= link_to "Edit", edit_match_set_path(@fixture) %>
+                <p id="spacer">|</p>
+                <%= link_to "Set " + set_number, match_set_path(set) %>
+                <p id="spacer">|</p>
+                <%= link_to "Remove", set, method: :delete, data:{confirm: "Are you sure? "} %>
+              </div>  
              <% end %>
           <% end %>
 
@@ -51,6 +57,7 @@
       </div>
     </div>
   </div>
+  <%= link_to 'Back', user_path(current_user), class: "btn btn-primary" %>
   <div class="row">
           <div id="report-platform" class="col-xs-12">
             <h1 class="form-title center"><%=@home_team.name + " - Match Report"%></h1>

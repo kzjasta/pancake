@@ -32,6 +32,12 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+#Chart.js graph library
+gem 'chart-js-rails'
+
+#Rails country select plugin
+gem 'country_select'
+
 #ActionPack Caching
 gem 'actionpack-page_caching'
 gem 'actionpack-action_caching'

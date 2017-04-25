@@ -17,6 +17,5 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
+//= require Chart
 
-
-$("#touch-tracker").scrollTop($("#touch-tracker")[0].scrollHeight);

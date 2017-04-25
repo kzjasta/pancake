@@ -5,6 +5,7 @@
         <h1 class="center"><%=@team.name%></h1>
         <%=render "players/player_listing"%>
         <%= link_to "Add Player", (new_team_player_path(@team)), class: "btn btn-primary" %>
+        <%= link_to 'Back', user_path(current_user), class: "btn btn-primary" %>
       </div>
     </div>
   </div>

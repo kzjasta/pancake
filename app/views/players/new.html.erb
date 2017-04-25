@@ -32,11 +32,11 @@
                     <%= f.date_field :date_of_birth, class: "form-control" %>
 
                     <!-- Height -->
-                    <%= f.label :height %>
+                    <%= f.label :height, 'Height(CM)' %>
                     <%= f.text_field :height, class: "form-control" %>
 
                     <!-- Weight -->
-                    <%= f.label :weight %>
+                    <%= f.label :weight, 'Weight(KG)'%>
                     <%= f.text_field :weight, class: "form-control" %>
 
                     <!-- Position -->
@@ -44,26 +44,28 @@
                     <%= f.select :position, options_for_select(['Setter', 'Middle-Blocker', 'Outside', 'Opposite', 'Libero']), {include_blank: "Select position..."}, class: "form-control" %>
 
                     <!-- Spike Reach -->
-                    <%= f.label :spike_reach %>
+                    <%= f.label :spike_reach, 'Spike Reach(CM)'%>
                     <%= f.text_field :spike_reach, class: "form-control" %>
 
                     <!-- Block Reach -->
-                    <%= f.label :block__reach %>
+                    <%= f.label :block__reach, 'Block Reach (CM)' %>
                     <%= f.text_field :block_reach, class: "form-control" %>
 
                     <!-- Nationality -->
                     <%= f.label :nationality %>
-                    <%= f.text_field :nationality, class: "form-control" %>
+                    <%= f.country_select :nationality,{include_blank: "Select country..."}, class: "form-control" %>
 
                     <!-- Profile Image -->
                     <%= f.label :image, 'Upload Image' %>
                     <%= f.file_field :image, class: "form-control" %>
-                    <%= f.label :remote_image_url, 'or Image URL' %>
-                    <%= f.text_field :remote_image_url, class: "form-control" %>
                     
                     <!-- Submit Button -->
                     <%= f.submit "Add Player", class: "btn btn-primary" %>
+                    
+                    <%= link_to 'Back', team_path(@team), class: "btn btn-primary" %>
+
                   <% end %>
+
                 </div>
               </div>
             </div>

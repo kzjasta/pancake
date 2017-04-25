@@ -19,14 +19,15 @@ class PlayersController < ApplicationController
 
   def edit
     @team = current_user.teams.find(params[:team_id])
-    @player = @team.players(player_params)
+    @player = Player.find(params[:id])
   end
 
   def update
     @team = current_user.teams.find(params[:team_id])
-    if @team.players.update(player_params)
-      flash[:notice] = "Team was successfully updated"
-      redirect_to current_user
+    @player = Player.find(params[:id])
+    if @player.update(player_params)
+      flash[:notice] = "Player was successfully updated"
+      redirect_to team_path(@team)
     else
       render 'edit'
     end

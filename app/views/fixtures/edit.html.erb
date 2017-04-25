@@ -21,24 +21,15 @@
 
                     <!-- Home Team -->
                     <%= f.label :home_team %>
-                    
-                    <%= f.collection_select :home_team_id, @teams,:id, :name, {class: "form-control", include_blank: "Select team..."} %>
+                    <%= f.collection_select :home_team_id, @teams,:id, :name, {include_blank: "Select team..."}, {class: "form-control"} %>
 
                     <!-- Away Team -->
                     <%= f.label :away_team %>
-                    <%= f.collection_select :away_team_id, @teams, :id, :name, {class: "form-control", include_blank: "Select team..."} %>
+                    <%= f.collection_select :away_team_id, @teams, :id, :name, {include_blank: "Select team..."}, class: "form-control" %>
 
                     <!-- Date and Time -->
                     <%= f.label :date_time, "Date & Time" %>
                     <%= f.datetime_field :date_time, {class: "form-control"} %>
-
-                    <!-- Home score -->
-                    <%= f.label :home_score %>
-                    <%= f.text_field :home_score, class: "form-control", placeholder: "Home score..." %>
-
-                    <!-- Away score -->
-                    <%= f.label :away_score %>
-                    <%= f.text_field :away_score, class: "form-control", size: "20x5", placeholder: "Away score..." %>
 
                     <!-- Description -->
                     <%= f.label :description %>
@@ -46,11 +37,12 @@
 
                     <!-- Venue -->
                     <%= f.label :venue %>
-                    <%= f.collection_select :venue_id, @venues, :id, :name, {class: "form-control", include_blank: "Select venue..."} %>
+                    <%= f.collection_select :venue_id, @venues, :id, :name, {include_blank: "Select venue..."},{class: "form-control"} %>
                     <%= link_to "Venue not showing?", new_venue_path %> </br>
 
                     <!-- Submit Button -->
                     <%= f.submit "Update Fixture", class: "btn btn-primary" %>
+                    <%= link_to 'Back', user_path(current_user), class: "btn btn-primary" %>
                   <% end %>
                 </div>
               </div>

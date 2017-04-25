@@ -35,7 +35,21 @@ class FixturesController < ApplicationController
   end
 
   def edit
+    @venues = Venue.all
+    @teams = current_user.teams.all
     @fixture = Fixture.find(params[:id])
+  end
+
+  def update
+    @venues = Venue.all
+    @teams = current_user.teams.all
+    @fixture = Fixture.find(params[:id])
+    if @fixture.update(fixture_params)
+      flash[:notice] = "Fixture was successfully updated"
+      redirect_to current_user
+    else
+      render 'edit'
+    end
   end
 
   def destroy

@@ -20,18 +20,18 @@
           <div class="clearfix"></div>
 
           <% if is_it_a_point?(touch) == true %>
-            <% if team.name == home_team.name %>
+            <% if @home_score.present? && team.name == home_team.name %>
               <% @home_score+=1 %>
               <h4 class="center">Home - <%=@home_score%> : <%=@away_score%> - Away</h4>
-            <% elsif team.name == away_team.name %>
+            <% elsif @away_score.present? && team.name == away_team.name %>
               <% @away_score+=1 %>
               <h4 class="center">Home - <%=@home_score%> : <%=@away_score%> - Away</h4>
             <% end %>
           <% elsif is_it_a_point?(touch) == false %>
-            <% if team.name == home_team.name %>
+            <% if @away_score.present? && team.name == home_team.name %>
               <% @away_score+=1 %>
               <h4 class="center">Home - <%=@home_score%> : <%=@away_score%> - Away</h4>
-            <% elsif team.name == away_team.name %>
+            <% elsif @home_score.present? && team.name == away_team.name %>
               <% @home_score+=1 %>
               <h4 class="center">Home - <%=@home_score%> : <%=@away_score%> - Away</h4>
             <% end %>

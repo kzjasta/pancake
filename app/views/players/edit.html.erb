@@ -16,7 +16,7 @@
                 <div class="form-group">
 
                   <!--Update Player Form -->
-                  <%= form_for [@team, @player] do  |f| %>
+                  <%= form_for [@team, @player], :html => {:multipart => true} do  |f| %>
                     <%= render 'shared/error_messages', object: f.object %>
 
                     <!-- First Name -->
@@ -41,7 +41,7 @@
 
                     <!-- Position -->
                     <%= f.label :postion %>
-                    <%= f.text_field :position, class: "form-control" %>
+                    <%= f.select :position, options_for_select(['Setter', 'Middle-Blocker', 'Outside', 'Opposite', 'Libero']), {include_blank: "Select position..."}, class: "form-control" %>
 
                     <!-- Spike Reach -->
                     <%= f.label :spike_reach %>
@@ -53,10 +53,15 @@
 
                     <!-- Nationality -->
                     <%= f.label :nationality %>
-                    <%= f.text_field :nationality, class: "form-control" %>
+                    <%= f.country_select :nationality,{include_blank: "Select country..."}, class: "form-control" %>
+
+                    <!-- Profile Image -->
+                    <%= f.label :image, 'Upload Image' %>
+                    <%= f.file_field :image, class: "form-control" %>
                     
                     <!-- Submit Button -->
                     <%= f.submit "Update Player", class: "btn btn-primary" %>
+                    <%= link_to 'Back', user_path(current_user), class: "btn btn-primary" %>
                   <% end %>
                 </div>
               </div>
