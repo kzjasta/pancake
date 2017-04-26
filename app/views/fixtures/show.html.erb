@@ -29,11 +29,11 @@
             <% @fixture.match_sets.each do |set| %>
               <% set_number = set.set_number.to_s %>
               <div class="set-control-group">
-                <%= link_to "Edit", edit_match_set_path(@fixture) %>
+                <%= link_to "Edit", edit_match_set_path(set.id) %>
                 <p id="spacer">|</p>
                 <%= link_to "Set " + set_number, match_set_path(set) %>
                 <p id="spacer">|</p>
-                <%= link_to "Remove", set, method: :delete, data:{confirm: "Are you sure? "} %>
+                <%= link_to "Remove", match_set_path(set.id), :method => :delete, data:{confirm: "Are you sure? "} %>
               </div>  
              <% end %>
           <% end %>

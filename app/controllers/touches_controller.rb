@@ -18,6 +18,28 @@ class TouchesController < ApplicationController
     end
   end
 
+  def edit
+    @touch = Touch.find(params[:id])
+    set_id = @touch.match_set_id
+    @match_set = MatchSet.find(set_id)
+    @fixture = @match_set.fixture
+    @teams = Team.where("id = " + @fixture.home_team_id.to_s + " OR id = " + @fixture.away_team_id.to_s)
+    @players = Player.where("team_id = " + @teams.ids.first.to_s + " OR id = " + @teams.ids.last.to_s)
+  end
+
+  def update
+    @touch = Touch.find(params[:id])
+    set_id = @touch.match_set_id
+    @match_set = MatchSet.find(set_id)
+
+    if @touch.update(touch_params)
+      flash[:notice] = "Touch was successfully updated"
+      redirect_to new_match_set_touch_path(@match_set)
+    else
+      render 'edit'
+    end
+
+  end
 
   def get_touch_objects
     @match_set = MatchSet.find(params[:match_set_id])

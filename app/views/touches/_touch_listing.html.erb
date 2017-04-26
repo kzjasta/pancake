@@ -8,15 +8,20 @@
         <% home_team = @fixture.home_team %>
         <% away_team = @fixture.away_team %>
         <div id="touch">
-          <div class="touch-part"><h4> <%=team.name %></h4></div>
-          <div class="touch-part"><h4 id="describer">player</h4></div>
-          <div class="touch-part"><h4> <%=player.last_name %></h4></div>
-          <div class="touch-part"><h4 id="describer">in position</h4></div>
-          <div class="touch-part"><h4> <%=touch.position %></h4></div>
-          <div class="touch-part"><h4 id="describer">performed a(n)</h4></div>
-          <div class="touch-part"><h4> <%=touch.touch_type %></h4></div>
-          <div class="touch-part"><h4 id="describer">and resulted in a(n)</h4></div>
-          <div class="touch-part"><h4> <%=touch.touch_result.titleize %></h4></div>
+          <%= link_to(edit_touch_path(touch.id), :class => 'touch-select') do %>
+            <div id="touch-line">
+              <div class="touch-part"><h4> <%=team.name %></h4></div>
+              <div class="touch-part"><h4 id="describer">player</h4></div>
+              <div class="touch-part"><h4> <%=player.last_name %></h4></div>
+              <div class="touch-part"><h4 id="describer">in position</h4></div>
+              <div class="touch-part"><h4> <%=touch.position %></h4></div>
+              <div class="touch-part"><h4 id="describer">performed a(n)</h4></div>
+              <div class="touch-part"><h4> <%=touch.touch_type %></h4></div>
+              <div class="touch-part"><h4 id="describer">and resulted in a(n)</h4></div>
+              <div class="touch-part"><h4> <%=touch.touch_result.titleize %></h4></div>
+            </div>
+          <% end %>
+          
           <div class="clearfix"></div>
 
           <% if is_it_a_point?(touch) == true %>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>panCake!</title>
+    <%=render 'layouts/shim'%>
+  </head>
+  <body class="form-bg">
+    <div class="container">
+      <div class="row">
+        <div id="tracker-platform" class="col-xs-12">
+          <h1 class="center">Touch Tracker</h1>
+          <div>
+            <%= render 'touches/touch_listing' %>
+          </div>
+        </div>
+      </div>
+      <%= link_to 'Back', match_set_path(@match_set), class: "btn btn-primary" %>
+      <div id="touch-panel" class="form-platform">
+        <div class="form">
+          <div class="row">
+            <h1 class="form-title">Edit Touch</h1>r
+          </div>
+          <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">
+              <div class="form-group">
+
+              <!--Add Touch Form -->
+              <%= form_for [@touch] do  |f| %> 
+                <%= render 'shared/error_messages', object: f.object %>
+                
+                <!-- Team -->
+                <%= f.label :team_id %>
+                <%= f.collection_select :team_id, @teams,:id, :name, {include_blank: "Select team..."}, {class: "form-control"} %>
+
+                <!-- Player -->
+                <%= f.label :player_id %>
+                <%= f.grouped_collection_select :player_id, @teams, :players, :name, :id, :last_name,  {include_blank: "Select player..."}, {class: "form-control"} %>
+
+                <!-- Position -->
+                <%= f.label :position %>
+                <%= f.select :position, options_for_select(['1', '2', '3', '4', '5', '6']), {include_blank: "Select position on court..."}, class: "form-control" %>
+
+                <!-- Touch Type -->
+                <%= f.label :touch_type %>
+                <%= f.select :touch_type, options_for_select(['Attack', 'Block', 'Pass', 'Set', 'Serve', 'Misc']), {include_blank: "Select touch type..."}, :onchange => "populate(this.id, 'touch_touch_result')", class: "form-control" %>
+
+                <!-- Touch Result -->
+                <%= f.label :touch_result %>
+                <%= f.select :touch_result, {}, {include_blank: "Select touch result..."}, class: "form-control" %>
+                
+                <!-- Submit Button -->
+                <%= f.submit "Add Touch", class: "btn btn-primary" %>
+              <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

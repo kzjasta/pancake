@@ -56,8 +56,8 @@ class FixturesController < ApplicationController
     @fixture = Fixture.find(params[:id])
     @fixture.delete
     flash[:success] = "Fixture Deleted"
-    redirect_to root_path
-  end 
+    redirect_to current_user
+  end
 
   private
 

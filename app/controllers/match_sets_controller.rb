@@ -16,6 +16,18 @@ class MatchSetsController < ApplicationController
     @efficiency = 0
     @passing_average = 0
   end
+
+  def update
+    @match_set = MatchSet.find(params[:id])
+    fixture_id = @match_set.fixture_id
+    @fixture = Fixture.find(fixture_id)
+    if @match_set.update(match_set_params)
+      flash[:notice] = "Set was successfully updated"
+      redirect_to fixture_path(@fixture)
+    else
+      render 'edit'
+    end
+  end
   
   def new
     @fixture = Fixture.find(params[:fixture_id])
@@ -34,15 +46,18 @@ class MatchSetsController < ApplicationController
   end
 
   def edit
-    @fixture = Fixture.find(params[:id])
-    @match_set = @fixture.match_set(match_set_params)
+    @match_set = MatchSet.find(params[:id])
+    fixture_id = @match_set.fixture_id
+    @fixture = Fixture.find(fixture_id)
   end
 
   def destroy
     @match_set = MatchSet.find(params[:id])
     @match_set.delete
+    id = @match_set.fixture_id
+    @fixture = Fixture.find(id)
     flash[:success] = "Set Deleted"
-    redirect_to root_url
+    redirect_to fixture_path(@fixture)
   end
 
   private

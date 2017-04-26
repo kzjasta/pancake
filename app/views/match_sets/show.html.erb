@@ -14,6 +14,7 @@
           </div>
         </div>
         <%= link_to "Add Touches",new_match_set_touch_path(@match_set), class: "btn btn-primary" %>
+        <%= link_to "Back", fixture_path(@fixture), class: "btn btn-primary" %>
         <div class="row">
           <div id="report-platform" class="col-xs-12">
             <h1 class="form-title center"><%=@home_team.name + " - Set Report"%></h1>

@@ -279,7 +279,11 @@ a{
 }
 
 
-/******* Actions Control Panel *******/
+/******* Touch Control Panel *******/
+
+#touch-lines{
+  text-decoration: none;
+}
 
 #tracker-platform{
   background-color: #333;
@@ -293,12 +297,26 @@ a{
   border-bottom: 1px dotted white;
   margin-left: 3%;
   margin-top: 1%;
+  text-decoration: none;
 }
 
 .touch-part{
   display: inline-block;
   float: left;
   padding: 1%;
+  text-decoration: none;
+}
+
+.touch-select{
+  color: white;
+  moz-transition: all .2s ease-in;
+  -o-transition: all .2s ease-in;
+  -webkit-transition: all .2s ease-in;
+  transition: all .2s ease-in;
+}
+
+.touch-select:hover{
+  color: #12FFF7;
 }
 
 .clearfix{

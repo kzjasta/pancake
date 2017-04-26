@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>panCake!</title>
+    <%=render 'layouts/shim'%>
+  </head>
+  <body class="form-bg">
+      <div class="container">
+        <div class="form-platform">
+          <div class="form">
+            <div class="row">
+              <h1 class="form-title">Edit Set</h1>
+            </div>
+            <div class="row">
+              <div class="col-xs-6 col-xs-offset-3">
+                <div class="form-group">
+
+                  <!--Edit Set Form -->
+                  <%= form_for [@match_set] do |f| %>
+                    <%= render 'shared/error_messages', object: f.object %>
+                    <!-- Team Name -->
+                    <%= f.label :set_number %>
+                    <%= f.text_field :set_number, class: "form-control", placeholder: "Set number..." %>
+
+                    <!-- Home Score -->
+                    <%= f.label :home_score %>
+                    <%= f.text_field :home_score, class: "form-control", placeholder: "Home set score..." %>
+
+                    <!-- Away Score -->
+                    <%= f.label :away_score %>
+                    <%= f.text_field :away_score, class: "form-control", placeholder: "Away set score..." %>
+
+                    <!-- Submit Button -->
+                    <%= f.submit "Add Set", class: "btn btn-primary" %>
+                    <%= link_to 'Back', fixture_path(@fixture), class: "btn btn-primary" %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
