@@ -1,5 +1,5 @@
 class Venue < ApplicationRecord
   
-#Venue Attributes and Validation
+#Venue Attributes and Validations
 validates :name, presence: true, length:{maximum: 40}
 end

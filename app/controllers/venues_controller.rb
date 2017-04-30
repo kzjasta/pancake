@@ -10,7 +10,7 @@ class VenuesController < ApplicationController
   def create
     @venue = Venue.new(venue_params)
     if @venue.save
-      redirect_to root_path
+      redirect_to new_fixture_path
     else
       render "new"
     end

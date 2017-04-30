@@ -7,6 +7,7 @@
         <% player = Player.find(touch.player_id) %>
         <% home_team = @fixture.home_team %>
         <% away_team = @fixture.away_team %>
+        
         <div id="touch">
           <%= link_to(edit_touch_path(touch.id), :class => 'touch-select') do %>
             <div id="touch-line">

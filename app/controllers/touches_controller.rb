@@ -41,6 +41,7 @@ class TouchesController < ApplicationController
 
   end
 
+  #Declares the instance variables needed for Touch actions.
   def get_touch_objects
     @match_set = MatchSet.find(params[:match_set_id])
     @fixture = @match_set.fixture

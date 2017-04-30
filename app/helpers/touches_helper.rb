@@ -1,5 +1,6 @@
 module TouchesHelper
 
+  #Takes in a touch and determines whether it is a point or a foul
   def is_it_a_point?(touch)
     point = ["kill","kill block", "ace",]
     foul = ["out","net fault","attack violation", "net", "foot fault", 

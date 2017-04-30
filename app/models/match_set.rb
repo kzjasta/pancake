@@ -4,7 +4,7 @@ class MatchSet < ApplicationRecord
   belongs_to :fixture
   has_many :touches
 
-  #Validations
+  #Match Set Attributes & Validations
   validates :set_number, presence: true, :numericality => {:greater_than => 0}, :uniqueness => {:scope => :fixture_id, :message => 'already exists'}
   validates :home_score, presence: true, :numericality => {:greater_than => -1}
   validates :away_score, presence: true, :numericality => {:greater_than => -1} 
